@@ -1,101 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US-DATA Annotation Tools | COCO to CVAT Converter & Computer Vision Dataset Tools</title>
 
-<title>
-US-DATA Annotation Tools | COCO to CVAT Converter | Computer Vision Dataset Tools
-</title>
+  <meta name="description" content="Open-source data annotation tools by US-DATA for computer vision, image annotation, COCO to CVAT conversion, bounding boxes, semantic segmentation and AI dataset preparation." />
 
-<meta name="description" content="Open-source data annotation tools for computer vision, image annotation, semantic segmentation, bounding boxes and AI dataset conversion by US-DATA.">
+  <meta name="keywords" content="data annotation, image annotation, computer vision annotation, COCO to CVAT, COCO JSON, CVAT XML, bounding boxes, semantic segmentation, object detection, polygon annotation, AI datasets, ML datasets" />
 
-<meta name="keywords" content="data annotation,image annotation,computer vision,coco to cvat,coco json,cvat xml,bounding boxes,semantic segmentation,polygon annotation,object detection,ai datasets">
+  <meta property="og:title" content="US-DATA Annotation Tools" />
+  <meta property="og:description" content="Open-source annotation and dataset conversion tools for AI, computer vision and machine learning projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://us-data-annotation-tools.github.io/us-data-annotation-tools/" />
+  <meta property="og:image" content="https://us-data-annotation-tools.github.io/us-data-annotation-tools/us-data-logo.png" />
 
-<meta property="og:title" content="US-DATA Annotation Tools">
-<meta property="og:description" content="Open-source annotation and dataset conversion tools for AI and computer vision projects.">
-<meta property="og:type" content="website">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f8fb;
+      color: #172033;
+      line-height: 1.6;
+    }
 
-<meta property="og:url" content="https://us-data-annotation-tools.github.io/us-data-annotation-tools/">
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
 
-<meta property="og:image" content="https://raw.githubusercontent.com/us-data-annotation-tools/us-data-annotation-tools/main/assets/us-data-logo.png">
+    header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
 
+    header img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 56px;
+      box-shadow: 0 18px 45px rgba(20, 35, 70, 0.08);
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      max-width: 850px;
+    }
+
+    .lead {
+      font-size: 20px;
+      max-width: 800px;
+      color: #4d5b73;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      background: #172033;
+      color: #ffffff;
+    }
+
+    .btn.secondary {
+      background: #e9eef8;
+      color: #172033;
+    }
+
+    .section {
+      margin: 42px 0;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(20, 35, 70, 0.06);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #536177;
+      margin-bottom: 0;
+    }
+
+    .links a {
+      display: block;
+      background: #ffffff;
+      padding: 16px 18px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #172033;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(20, 35, 70, 0.05);
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid #dce3ef;
+      color: #68758a;
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 32px 24px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 
-<body style="font-family: Arial; max-width: 1000px; margin: auto; padding: 40px; line-height: 1.7;">
+<body>
+  <div class="container">
 
-<h1>US-DATA Annotation Tools</h1>
+    <header>
+      <img src="us-data-logo.png" alt="US-DATA Logo" />
+      <div class="brand">US-DATA Annotation Tools</div>
+    </header>
 
-<p>
-Open-source data annotation and dataset conversion tools for computer vision, machine learning and AI dataset preparation.
-</p>
+    <main>
+      <section class="hero">
+        <h1>Open-source data annotation tools for AI and computer vision datasets</h1>
 
-<h2>Supported Annotation Tasks</h2>
+        <p class="lead">
+          US-DATA Annotation Tools is a lightweight open-source toolkit for dataset conversion,
+          image annotation workflows, COCO JSON to CVAT XML conversion, bounding boxes,
+          semantic segmentation and machine learning dataset preparation.
+        </p>
 
-<ul>
-<li>Image Annotation</li>
-<li>Computer Vision Annotation</li>
-<li>Bounding Boxes</li>
-<li>Object Detection</li>
-<li>Semantic Segmentation</li>
-<li>Polygon Annotation</li>
-<li>Cuboid Annotation</li>
-<li>AI Dataset Preparation</li>
-</ul>
+        <div class="buttons">
+          <a class="btn" href="https://usdataml.com/en/pages/tools/coco-to-cvat.html">Open COCO to CVAT Converter</a>
+          <a class="btn secondary" href="https://github.com/us-data-annotation-tools/us-data-annotation-tools">View on GitHub</a>
+        </div>
+      </section>
 
-<h2>Available Tools</h2>
+      <section class="section">
+        <h2>Available Tool</h2>
 
-<h3>COCO JSON to CVAT XML Converter</h3>
+        <div class="card">
+          <h3>COCO JSON to CVAT XML Converter</h3>
+          <p>
+            Convert COCO JSON annotation files into CVAT XML format for computer vision,
+            object detection, bounding box annotation, polygon annotation and semantic segmentation workflows.
+          </p>
+        </div>
+      </section>
 
-<p>
-Convert COCO JSON datasets into CVAT XML annotation format for computer vision workflows and machine learning pipelines.
-</p>
+      <section class="section">
+        <h2>Annotation Tasks</h2>
 
-<p>
-Supports:
-</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Image Annotation</h3>
+            <p>Tools and workflows for preparing labeled image datasets for ML and AI models.</p>
+          </div>
 
-<ul>
-<li>Bounding Boxes</li>
-<li>Polygon Annotation</li>
-<li>Semantic Segmentation</li>
-<li>COCO JSON</li>
-<li>CVAT XML</li>
-</ul>
+          <div class="card">
+            <h3>Bounding Boxes</h3>
+            <p>Dataset conversion support for object detection and box-based computer vision tasks.</p>
+          </div>
 
-<h2>Online Tool</h2>
+          <div class="card">
+            <h3>Semantic Segmentation</h3>
+            <p>Support for polygon-based annotations and segmentation-oriented dataset preparation.</p>
+          </div>
 
-<p>
-<a href="https://usdataml.com/en/pages/tools/coco-to-cvat.html">
-Open COCO to CVAT Converter
-</a>
-</p>
+          <div class="card">
+            <h3>Computer Vision Datasets</h3>
+            <p>Utilities for COCO, CVAT and future dataset formats used in AI model training.</p>
+          </div>
+        </div>
+      </section>
 
-<h2>GitHub Repository</h2>
+      <section class="section">
+        <h2>US-DATA Services</h2>
 
-<p>
-<a href="https://github.com/us-data-annotation-tools/us-data-annotation-tools">
-US-DATA Annotation Tools Repository
-</a>
-</p>
+        <div class="links">
+          <a href="https://usdataml.com/en/">US-DATA — Data Annotation for Machine Learning</a>
+          <a href="https://usdataml.com/en/pages/annotation-images.html">Image Annotation Services</a>
+          <a href="https://usdataml.com/en/pages/annotation-video.html">Video Annotation Services</a>
+          <a href="https://usdataml.com/en/pages/annotation-audio.html">Audio Annotation Services</a>
+          <a href="https://usdataml.com/en/pages/annotation-text.html">Text Annotation Services</a>
+          <a href="https://usdataml.com/en/pricing/">Data Annotation Pricing</a>
+        </div>
+      </section>
 
-<h2>About US-DATA</h2>
+      <section class="section">
+        <h2>Built by US-DATA</h2>
 
-<p>
-US-DATA provides data annotation services for machine learning, computer vision, NLP and AI projects.
-</p>
+        <p>
+          US-DATA provides data annotation, image labeling, video annotation, audio transcription,
+          text annotation, NLP dataset preparation, computer vision datasets and AI-ready data
+          for machine learning projects.
+        </p>
+      </section>
+    </main>
 
-<p>
-Services include image annotation, video annotation, text annotation, semantic segmentation, polygon annotation, bounding boxes and AI dataset preparation.
-</p>
+    <footer>
+      © US-DATA Annotation Tools. Open-source dataset conversion tools for AI, ML and computer vision.
+    </footer>
 
-<p>
-<a href="https://usdataml.com/en/">
-US-DATA Website
-</a>
-</p>
-
+  </div>
 </body>
 </html>
